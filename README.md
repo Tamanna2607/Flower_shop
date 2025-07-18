@@ -7,6 +7,9 @@ This frontend-only e-commerce web app allows users to explore and shop for fresh
 
 ---
 
+> 🌐 *Live Demo*: [https://tamanna-flower-shop.netlify.app/](https://tamanna-flower-shop.netlify.app/)
+> 
+ ---
 ## ✨ Features
 
 - 🛍 Browse a wide selection of flowers, plants & gifts  
