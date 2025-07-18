@@ -1,0 +1,518 @@
+.product-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 280px;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  width: 90%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 16px 16px 0 0;
+  background: linear-gradient(135deg, #ffe4ec 0%, #e0f7fa 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image img {
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+  border-radius: 16px 16px 0 0;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.07);
+}
+
+.wishlist-heart {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255,255,255,0.9);
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: #e57373;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  z-index: 2;
+  backdrop-filter: blur(8px);
+}
+
+.wishlist-heart.active {
+  color: #d81b60;
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 4px 12px rgba(173, 20, 87, 0.1);
+  transform: scale(1.05);
+}
+
+.wishlist-heart:hover {
+  background: rgba(255,255,255,0.95);
+  color: #ad1457;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(173, 20, 87, 0.1);
+}
+
+.wishlist-heart.active:hover {
+  background: rgba(255,255,255,0.95);
+  color: #c2185b;
+  transform: scale(1.15);
+  box-shadow: 0 6px 15px rgba(173, 20, 87, 0.15);
+}
+
+.product-info {
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  font-family: 'Poppins', 'Quicksand', cursive, sans-serif;
+}
+
+.product-name {
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem 0;
+  color: #ad1457;
+  font-weight: 600;
+  text-align: center;
+  font-family: 'Poppins', 'Quicksand', cursive, sans-serif;
+}
+
+.product-description {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin: 0.5rem 0;
+  line-height: 1.4;
+  opacity: 0.9;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.product-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #43a047;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.product-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.add-to-cart-btn,
+.wishlist-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-to-cart-btn {
+  background: linear-gradient(135deg, #4CAF50 0%, #2196F3 100%);
+  color: white;
+}
+
+.add-to-cart-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.wishlist-btn {
+  background: white;
+  color: #2c3e50;
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+}
+
+.wishlist-btn:hover {
+  background: #f8f9fa;
+}
+
+.wishlist-btn.active {
+  background: #ff4444;
+  color: white;
+}
+
+.wishlist-btn.active:hover {
+  background: #dd2c2c;
+}
+
+/* Add subtle hover effect on product card */
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.product-card:hover::before {
+  opacity: 1;
+}
+
+.product-card {
+  font-family: 'Poppins', 'Quicksand', cursive, sans-serif;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px 0 rgba(220, 120, 180, 0.08), 0 1.5px 6px 0 rgba(120, 220, 180, 0.06);
+  transition: box-shadow 0.3s, transform 0.3s;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-card:hover {
+  box-shadow: 0 10px 32px 0 rgba(220, 120, 180, 0.18), 0 4px 16px 0 rgba(120, 220, 180, 0.12);
+  transform: translateY(-6px) scale(1.02);
+}
+
+@media (max-width: 600px) {
+  .product-card {
+    max-width: 95vw;
+    min-width: 180px;
+  }
+  .product-image {
+    height: 160px;
+  }
+}
+
+.product-card-floral {
+  background: linear-gradient(135deg, #ffe4ec 0%, #e0f7fa 100%);
+  border-radius: 1.5rem;
+  box-shadow: 0 6px 32px 0 rgba(220, 120, 180, 0.12), 0 1.5px 6px 0 rgba(0,0,0,0.04);
+  padding: 2rem 1.5rem;
+  margin: 1rem auto;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.product-card-floral:hover {
+  box-shadow: 0 12px 40px 0 rgba(220, 120, 180, 0.18), 0 3px 12px 0 rgba(0,0,0,0.08);
+  transform: translateY(-4px) scale(1.01);
+}
+.product-card-header {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  z-index: 2;
+}
+.wishlist-heart-floral {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #e573a6;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s;
+  filter: drop-shadow(0 2px 6px #e573a655);
+}
+.wishlist-heart-floral.active {
+  color: #c2185b;
+  transform: scale(1.15);
+}
+.wishlist-heart-floral:hover {
+  color: #ad1457;
+  transform: scale(1.2) rotate(-8deg);
+}
+.product-card-body {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: flex-start;
+}
+.product-image-floral {
+  flex: 1 1 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.product-image-floral-img {
+  width: 100%;
+  max-width: 220px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 24px 0 rgba(220, 120, 180, 0.18);
+  background: #fff0f6;
+  margin: 0 auto;
+  display: block;
+}
+.product-info-floral {
+  flex: 2 1 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  justify-content: flex-start;
+}
+.product-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.product-flower-icon {
+  font-size: 1.5rem;
+  opacity: 0.85;
+}
+.product-name-floral {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ad1457;
+  margin: 0;
+}
+.product-price-floral {
+  font-size: 1.2rem;
+  color: #388e3c;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+.product-rating-floral {
+  display: flex;
+  gap: 0.1rem;
+  font-size: 1.1rem;
+  color: #ffd700;
+  margin-bottom: 0.3rem;
+}
+.product-description-floral {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1.05rem;
+  color: #5d4037;
+  background: #fff8fa;
+  border-radius: 0.75rem;
+  padding: 0.7rem 1rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+  box-shadow: 0 1px 4px 0 rgba(220, 120, 180, 0.06);
+}
+.quantity-selector-floral {
+  margin: 0.5rem 0 0.7rem 0;
+}
+.quantity-input-floral {
+  width: 60px;
+  padding: 0.4rem 0.7rem;
+  border-radius: 1rem;
+  border: 1px solid #e573a6;
+  font-size: 1rem;
+  background: #fff0f6;
+  color: #ad1457;
+  outline: none;
+  transition: border 0.2s;
+}
+.quantity-input-floral:focus {
+  border: 1.5px solid #ad1457;
+}
+.add-to-cart-btn-floral {
+  margin-top: 1.2rem;
+  width: 100%;
+  padding: 1rem 0;
+  font-size: 1.15rem;
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(90deg, #f8bbd0 0%, #b2dfdb 100%);
+  color: #ad1457;
+  border: none;
+  border-radius: 2rem;
+  box-shadow: 0 2px 12px 0 rgba(220, 120, 180, 0.10);
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  transition: box-shadow 0.2s, background 0.2s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.add-to-cart-btn-floral:hover {
+  background: linear-gradient(90deg, #f06292 0%, #80cbc4 100%);
+  color: #fff;
+  box-shadow: 0 6px 24px 0 #e573a6aa, 0 1.5px 6px 0 #b2dfdb88;
+  transform: translateY(-2px) scale(1.03);
+}
+@media (max-width: 700px) {
+  .product-card-floral {
+    flex-direction: column;
+    padding: 1.2rem 0.5rem;
+    max-width: 98vw;
+  }
+  .product-card-body {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .product-image-floral {
+    max-width: 100%;
+    margin-bottom: 0.7rem;
+  }
+  .product-image-floral-img {
+    max-width: 95vw;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .product-info-floral {
+    gap: 0.5rem;
+  }
+  .add-to-cart-btn-floral {
+    font-size: 1rem;
+    padding: 0.8rem 0;
+  }
+}
+/* Optional: Petal float animation (bonus) */
+@keyframes petalFloat {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-60px) scale(1.2); opacity: 0; }
+}
+.petal-float {
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  font-size: 2rem;
+  opacity: 0.7;
+  pointer-events: none;
+  animation: petalFloat 1.2s ease-in forwards;
+}
+
+.product-card-floral-minimal {
+  background: linear-gradient(135deg, #ffe4ec 0%, #e0f7fa 100%);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 18px 0 rgba(220, 120, 180, 0.10), 0 1.5px 6px 0 rgba(0,0,0,0.03);
+  padding: 1.7rem 1.2rem 2rem 1.2rem;
+  margin: 0.7rem auto;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.product-card-floral-minimal:hover {
+  box-shadow: 0 8px 32px 0 rgba(220, 120, 180, 0.16), 0 3px 12px 0 rgba(0,0,0,0.07);
+  transform: translateY(-3px) scale(1.01);
+}
+.product-card-floral-minimal .product-card-header {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+}
+.product-card-floral-minimal .wishlist-heart-floral {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #e573a6;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s;
+  filter: drop-shadow(0 2px 6px #e573a655);
+}
+.product-card-floral-minimal .wishlist-heart-floral.active {
+  color: #c2185b;
+  transform: scale(1.12);
+}
+.product-card-floral-minimal .wishlist-heart-floral:hover {
+  color: #ad1457;
+  transform: scale(1.18) rotate(-8deg);
+}
+.product-card-floral-minimal .product-image-floral {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.product-card-floral-minimal .product-image-floral-img {
+  width: 100%;
+  max-width: 230px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 1.25rem;
+  box-shadow: 0 2px 12px 0 rgba(220, 120, 180, 0.13);
+  background: #fff0f6;
+  margin: 0 auto;
+  display: block;
+}
+.product-info-floral-minimal {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+.product-info-floral-minimal .product-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.product-info-floral-minimal .product-flower-icon {
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+.product-info-floral-minimal .product-name-floral {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ad1457;
+  margin: 0;
+}
+.product-info-floral-minimal .product-price-floral {
+  font-size: 1.05rem;
+  color: #388e3c;
+  font-weight: 600;
+  margin-bottom: 0.1rem;
+}
+@media (max-width: 700px) {
+  .product-card-floral-minimal {
+    max-width: 98vw;
+    padding: 1.1rem 0.2rem 1.5rem 0.2rem;
+  }
+  .product-card-floral-minimal .product-image-floral-img {
+    max-width: 95vw;
+  }
+}
